@@ -1,0 +1,22 @@
+# Render Blueprint — Mech Battlegrounds multiplayer
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: mech-battlegrounds
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: PUBLIC_DIR
+        value: ./public
+      - key: TICK_HZ
+        value: "20"
+      - key: MAX_PLAYERS
+        value: "32"
+      - key: KILL_REWARD
+        value: "100"
+    healthCheckPath: /
